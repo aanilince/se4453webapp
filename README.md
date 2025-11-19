@@ -39,4 +39,5 @@ This project follows the Git-Flow branching model:
 - `release/*`: Release preparation branches
 - `hotfix/*`: Emergency fixes for production
 
-
+## Release notes
+Version: 1.0.0
