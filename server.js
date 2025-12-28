@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Key Vault URL from environment variable
-const keyVaultUrl = process.env.KEYVAULT_URL;
+const keyVaultUrl = String(process.env.KEYVAULT_URL || "").trim();
 const credential = new DefaultAzureCredential();
 const secretClient = new SecretClient(keyVaultUrl, credential);
 
