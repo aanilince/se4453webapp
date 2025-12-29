@@ -1,5 +1,11 @@
 name: Build and deploy a container to an Azure Web App
 
+env:
+  AZURE_WEBAPP_NAME: SE4453WebApp
+  ACR_NAME: cr4453
+  RESOURCE_GROUP: SE4453
+  IMAGE_NAME: SE4453WebApp
+
 on:
   push:
     branches: ["main"]
@@ -23,7 +29,7 @@ jobs:
 
       - name: Login to ACR
         run: |
-          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ env.ACR_NAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ vars.ACR_NAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
       - name: Build and push Docker image to ACR
         run: |
