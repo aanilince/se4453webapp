@@ -16,7 +16,7 @@ RUN echo 'root:password123' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 USER root
-EXPOSE 22 3000
+EXPOSE 2222 3000
 
 RUN chmod +x /app/start.sh
 CMD ["/bin/sh", "/app/start.sh"]
