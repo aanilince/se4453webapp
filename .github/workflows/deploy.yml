@@ -27,8 +27,8 @@ jobs:
 
       - name: Build and push Docker image to ACR
         run: |
-          docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest .
-          docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest
+          docker build -t ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.IMAGE_NAME }}:latest .
+          docker push ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.IMAGE_NAME }}:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,5 +45,5 @@ jobs:
       - name: Deploy container image to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          images: ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest
+          app-name: ${{ vars.AZURE_WEBAPP_NAME }}
+          images: ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.IMAGE_NAME }}:latest
