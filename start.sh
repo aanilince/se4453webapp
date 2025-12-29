@@ -1,7 +1,6 @@
-if [ ! -f /etc/ssh/ssh_host_rsa_key ]; then
-    ssh-keygen -A
-fi
+#!/bin/sh
+set -e
 
-/usr/sbin/sshd -D &
+/usr/sbin/sshd
 
-npm start
+exec node server.js
