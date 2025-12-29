@@ -1,11 +1,5 @@
 name: Build and deploy a container to an Azure Web App
 
-env:
-  AZURE_WEBAPP_NAME: SE4453WebApp
-  ACR_NAME: cr4453
-  RESOURCE_GROUP: SE4453
-  IMAGE_NAME: SE4453WebApp
-
 on:
   push:
     branches: ["main"]
