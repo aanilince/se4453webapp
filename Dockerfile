@@ -12,6 +12,8 @@ COPY . .
 
 RUN apk add --no-cache openssh-server
 
+COPY sshd_config /etc/ssh/sshd_config
+
 RUN echo 'root:password123' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
