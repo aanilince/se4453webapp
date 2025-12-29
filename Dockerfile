@@ -9,6 +9,7 @@ COPY . .
 
 COPY sshd_config /etc/ssh/
 COPY start.sh ./
+RUN sed -i 's/\r$//' start.sh
 
 RUN apk add openssh \
     && echo "root:Docker!" | chpasswd \
