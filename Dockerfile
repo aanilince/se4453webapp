@@ -12,7 +12,6 @@ COPY start.sh ./
 RUN sed -i 's/\r$//' start.sh
 
 RUN apk add openssh \
-    && echo "root:Docker!" | chpasswd \
     && chmod +x ./start.sh \
     && cd /etc/ssh/ \
     && ssh-keygen -A
